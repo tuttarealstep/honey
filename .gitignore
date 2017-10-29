@@ -1,0 +1,4 @@
+/vendor
+phpmyadmin
+composer.lock
+.idea
