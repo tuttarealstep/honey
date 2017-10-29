@@ -1,0 +1,21 @@
+{
+  "name": "honey/router",
+  "description": "The Honey Relpers package.",
+  "minimum-stability": "dev",
+  "license": "GPL-3.0+",
+  "authors": [
+    {
+      "name": "Stefano Valenzano",
+      "email": "valenzano.stefano99@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "nikic/fast-route": "^1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Honey\\Router\\": ""
+    }
+  }
+}

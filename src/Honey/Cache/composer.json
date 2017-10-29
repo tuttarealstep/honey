@@ -1,0 +1,20 @@
+{
+  "name": "honey/cache",
+  "description": "The Honey Cache package.",
+  "minimum-stability": "dev",
+  "license": "GPL-3.0+",
+  "authors": [
+    {
+      "name": "Stefano Valenzano",
+      "email": "valenzano.stefano99@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Honey\\Cache\\": ""
+    }
+  }
+}
