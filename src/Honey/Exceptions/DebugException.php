@@ -19,6 +19,7 @@ class DebugException extends Exception
 
     function errorMessage()
     {
+        //todo finish debug exception
         $error = <<<ERROR
 <html>
     <head>

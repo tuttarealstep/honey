@@ -417,8 +417,9 @@ class Builder
      */
     public function first($columns = ['*'])
     {
+        $columns = ArrayHelper::wrap($columns);
         $elements = $this->limit(1)->get($columns);
-        if(count($elements) >= 0)
+        if(count($elements) >= 0 && isset($elements[0]))
         {
             return $elements[0];
         }
@@ -432,8 +433,15 @@ class Builder
      */
     public function value($column)
     {
-        $result = (array) $this->first([$column]);
-        return $result[$column];
+        $column = ArrayHelper::wrap($column);
+        $first = $this->first($column);
+        if($first != false)
+        {
+            $result = (array)$first;
+            return $result[$column];
+        } else {
+            return false;
+        }
     }
 
     /**
