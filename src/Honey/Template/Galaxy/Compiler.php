@@ -209,7 +209,7 @@ class Compiler
 
             }
             $x =& $x->linkNext;
-        } while (!@is_null($x->linkNext));
+        } while (!@is_null($x) && !@is_null($x->linkNext));
 
         return $buffer;
     }
@@ -228,7 +228,7 @@ class Compiler
                 $this->printTest($graph->findNode($k), $graph);
             }
             $x =& $x->linkNext;
-        } while (!@is_null($x->linkNext));
+        } while (!@is_null($x) && !@is_null($x->linkNext));
     }
 
     private function beautifyHtml($buffer)
