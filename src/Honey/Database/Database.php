@@ -72,6 +72,7 @@ class Database implements DatabaseInterface
      * @param $query
      * @param array $params
      * @return mixed
+     * @throws Exception
      */
     public function select($query, $params = [])
     {
@@ -88,6 +89,7 @@ class Database implements DatabaseInterface
      * @param $query
      * @param array $params
      * @return mixed
+     * @throws Exception
      */
     public function insert($query, $params = [])
     {
@@ -98,6 +100,7 @@ class Database implements DatabaseInterface
      * @param $query
      * @param array $params
      * @return mixed
+     * @throws Exception
      */
     public function delete($query, $params = [])
     {
@@ -108,6 +111,7 @@ class Database implements DatabaseInterface
      * @param $query
      * @param array $params
      * @return mixed
+     * @throws Exception
      */
     public function update($query, $params = [])
     {
@@ -118,6 +122,7 @@ class Database implements DatabaseInterface
      * @param $query
      * @param array $params
      * @return mixed
+     * @throws Exception
      */
     public function statement($query, $params = [])
     {
@@ -133,6 +138,7 @@ class Database implements DatabaseInterface
      * @param $query
      * @param array $params
      * @return mixed
+     * @throws Exception
      */
     public function countStatement($query, $params = [])
     {
@@ -159,6 +165,7 @@ class Database implements DatabaseInterface
      * @param $query
      * @param array $params
      * @return mixed
+     * @throws Exception
      */
     public function rawQuery($query, $params = [])
     {
