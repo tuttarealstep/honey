@@ -41,12 +41,17 @@ class SqlProcessor extends Processor
 
         $limit = $this->compileLimit($query, $query->limit);
 
-        $tmpExplode = explode(" ", $tmpComponents['columns']);
-        array_splice($tmpExplode, 1, 0,$limit);
+        if($query->limit != null) {
 
-        $tmpComponents['columns'] = implode(' ', $tmpExplode);
+            $tmpExplode = explode(" ", $tmpComponents['columns']);
+            array_splice($tmpExplode, 1, 0, $limit);
 
-        $sql = trim($this->concatenate($tmpComponents));
+            $tmpComponents['columns'] = implode(' ', $tmpExplode);
+
+            $sql = trim($this->concatenate($tmpComponents));
+        } else {
+            $sql = trim($this->concatenate($tmpComponents));
+        }
 
         $query->columns = $original;
 
