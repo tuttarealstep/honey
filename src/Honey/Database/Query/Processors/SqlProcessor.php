@@ -74,7 +74,11 @@ class SqlProcessor extends Processor
         $columns = $this->compileUpdateColumns($values);
         $where = $this->compileWheres($query);
 
-        $limit = $this->compileLimit($query, $query->limit);
+        $limit = "";
+        if(isset($query->limit))
+        {
+            $limit = $this->compileLimit($query, $query->limit);
+        }
 
         $sql = rtrim("update {$limit} {$table} set $columns $where");
 
