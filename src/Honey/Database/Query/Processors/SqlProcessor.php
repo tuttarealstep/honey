@@ -98,7 +98,11 @@ class SqlProcessor extends Processor
 
         $where = is_array($query->wheres) ? $this->compileWheres($query) : '';
 
-        $limit = $this->compileLimit($query, $query->limit);
+        $limit = "";
+        if(isset($query->limit))
+        {
+            $limit = $this->compileLimit($query, $query->limit);
+        }
 
         $sql = trim("delete {$limit} from {$table} {$where}");
 
