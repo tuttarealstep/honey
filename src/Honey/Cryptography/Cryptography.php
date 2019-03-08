@@ -101,6 +101,7 @@ class Cryptography
     /**
      * @param $length
      * @return bool|string
+     * @throws \Exception
      */
     public static function generateRandom($length)
     {

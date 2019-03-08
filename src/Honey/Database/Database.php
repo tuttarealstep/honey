@@ -195,7 +195,12 @@ class Database implements DatabaseInterface
 
     public function rollBack()
     {
-        return $this->getPdo()->rollBack();
+       /* if (--$this->transactions) {
+            $this->getPdo()->exec('ROLLBACK TRAN trans'. ($this->transactions + 1));
+            return true;
+        }*/
+        return  $this->getPdo()->rollback();
+        //return $this->getPdo()->rollBack();
     }
 
     public function lastInsertId()
@@ -345,4 +350,31 @@ class Database implements DatabaseInterface
         $statement->setFetchMode($this->fetchMode);
         return $statement;
     }
+
+    /**
+     * @return bool
+     */
+    public function beginTransaction()
+    {
+       // if (!$this->transactions++)
+       // {
+            return $this->getPdo()->beginTransaction();
+        //}
+
+       /* $this->getPdo()->exec('SAVEPOINT trans' . $this->transactions);
+        return $this->transactions >= 0;*/
+    }
+
+    /**
+     * @return bool
+     */
+    public function commit()
+    {
+      //  if (!--$this->transactions) {
+            return $this->getPdo()->commit();
+       /* }
+        return $this->transactions >= 0;*/
+    }
+
+
 }
